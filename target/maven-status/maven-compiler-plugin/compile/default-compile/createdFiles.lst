@@ -1,0 +1,9 @@
+Managers\ConfigFileReader.class
+PageObjectModel\DemoApp_LoginPage.class
+Reporting\CucumberReport$1.class
+Reporting\CucumberReport.class
+BaseClass\BaseClass.class
+Managers\WebDriverManager.class
+StepDefinitions\DemoApplication.class
+Utilities\ExcelOperations.class
+Utilities\Screenshot.class
