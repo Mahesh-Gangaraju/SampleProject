@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/features",
         plugin = {"pretty" , "json:C:\\Mahesh Gangaraju\\Work\\AutomationResources\\Run_Results/cucumber.json"},
         glue = {"StepDefinitions" , "BaseClass" },
-        tags = "@Dummy_1"
+        tags = "@Demo_Suite"
 )
 
 public class TestRunner {

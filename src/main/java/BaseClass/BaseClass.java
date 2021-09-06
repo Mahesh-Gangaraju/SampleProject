@@ -44,7 +44,7 @@ public class BaseClass {
         String taskKillCommand = "TASKKILL /F /IM ";
         try
         {
-            Runtime.getRuntime().exec(taskKillCommand + "chrome.exe" + " /T");
+           // Runtime.getRuntime().exec(taskKillCommand + "chrome.exe" + " /T");
             Runtime.getRuntime().exec(taskKillCommand + "EXCEL.exe" + " /T");
         }
         catch(Exception e)

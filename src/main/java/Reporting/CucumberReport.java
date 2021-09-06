@@ -22,9 +22,6 @@ public class CucumberReport {
                 Date date  = new Date();
                 String baseResultsFolder = ConfigFileReader.properties.getProperty("ResultsLocation");
                 String resultsFolder = baseResultsFolder + "\\Results_" + dateFormat.format(date);
-                System.out.println("*********************************************************************************************************************************************************");
-                System.out.println("Results are Located at This Location: " + resultsFolder);
-                System.out.println("*********************************************************************************************************************************************************");
                 File reportOutputDirectory = new File(resultsFolder);
                 List<String> jsonFiles = new ArrayList<String>();
                 jsonFiles.add(baseResultsFolder+"/cucumber.json");
@@ -36,6 +33,9 @@ public class CucumberReport {
                 configuration.setBuildNumber(buildNumber);
                 ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
                 reportBuilder.generateReports();
+                System.out.println("*********************************************************************************************************************************************************");
+                System.out.println("Results are Located at This Location: " + resultsFolder);
+                System.out.println("*********************************************************************************************************************************************************");
             }
         });
     }

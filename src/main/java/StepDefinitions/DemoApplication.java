@@ -4,6 +4,7 @@ import BaseClass.BaseClass;
 import Managers.ConfigFileReader;
 import PageObjectModel.DemoApp_LoginPage;
 import Utilities.ExcelOperations;
+import Utilities.Screenshot;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -44,6 +45,7 @@ public class DemoApplication {
         Thread.sleep(6000);
         demoApp_LoginPage = new DemoApp_LoginPage();
         demoApp_LoginPage.close_Lauch_Popup();
+        Screenshot.WebCapture(driver,"HomePage");
     }
 
     @When("Traverse to Simple Form Demo")
