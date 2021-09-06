@@ -22,14 +22,19 @@ public class DemoApplication {
         String filePath = "C:\\Mahesh Gangaraju\\Work\\AutomationResources\\TestData\\FILE_NAME.xlsx";
         String sheetName = "SHEET_NAME";
         String[] columnNames = {"COLUMN#1","COLUMN#2","COLUMN#3"};
-        Assert.assertTrue("Unable to Create File. Please check if File Already Exists" , exlObj.createNewExcelFile(filePath,sheetName,columnNames));
+       // Assert.assertTrue("Unable to Create File. Please check if File Already Exists" , exlObj.createNewExcelFile(filePath,sheetName,columnNames));
 
         //Get cell Row Num
         int rowNum = exlObj.getCellRowNum(filePath,sheetName,"Value1");
-        System.out.println("Row Number is " + rowNum );
+        Assert.assertTrue("There is No Row Which Has The Passed Value" , rowNum>0);
 
         //Write Contents to an Excel File
+       //Assert.assertTrue("Unable to Update Cell Data. Please go through stacktrace for more info" ,exlObj.setCellData(filePath,sheetName,rowNum,1,"UpdateValue") );
 
+       //Read Data From Excel
+        String dataFound = exlObj.getCellData(filePath,sheetName,rowNum,1);
+        Assert.assertTrue("Cell is Either Empty or Null", dataFound!="");
+        System.out.println("String Found is: " + dataFound);
     }
 
     @Given("Demo Application is Launched")
