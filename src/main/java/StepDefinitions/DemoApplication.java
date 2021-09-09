@@ -4,6 +4,7 @@ import BaseClass.BaseClass;
 import Managers.ConfigFileReader;
 import PageObjectModel.DemoApp_LoginPage;
 import Utilities.ExcelOperations;
+import Utilities.FileHandling;
 import Utilities.GenericFunctions;
 import Utilities.Screenshot;
 import io.cucumber.java.en.Given;
@@ -12,13 +13,15 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 public class DemoApplication {
     WebDriver driver;
     private DemoApp_LoginPage demoApp_LoginPage;
     private ExcelOperations exlObj;
 
     @When("Dummy")
-    public void dummy() {
+    public void dummy() throws Exception {
 
     }
 

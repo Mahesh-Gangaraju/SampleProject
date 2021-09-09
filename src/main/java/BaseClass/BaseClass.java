@@ -9,6 +9,11 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+
 
 public class BaseClass {
 
@@ -50,6 +55,37 @@ public class BaseClass {
         catch(Exception e)
         {
 
+        }
+    }
+
+    //This method used to launch any .exe file
+    public static boolean launchAnApplication(String folerPath, String executableFileName) {
+
+        try{
+            //Getting current active processes from task list!
+            String line,pidInfo ="";
+            Process p =Runtime.getRuntime().exec(System.getenv("windir") +"\\system32\\"+"tasklist.exe");
+            BufferedReader input =  new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while ((line = input.readLine()) != null) {
+                pidInfo += line;
+            }
+            input.close();
+            if(pidInfo.contains(executableFileName)){ //Condition To Check if the process is already running
+                System.out.println("Application: " + executableFileName + " is Already Running");
+                return true;
+            }else{
+                if(Desktop.isDesktopSupported()){ // Condition to check if Desktop is Supported
+                    Desktop dsktop = Desktop.getDesktop();
+                    dsktop.open(new File(folerPath+executableFileName)); //Launching the required application
+                    return true;
+                }else{
+                    System.out.println("Desktop Class Is Not Supported!");
+                    return false;
+                }
+            }
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
         }
     }
 }
