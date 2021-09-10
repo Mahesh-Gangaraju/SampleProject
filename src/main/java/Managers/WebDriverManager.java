@@ -19,6 +19,7 @@ public class WebDriverManager {
     public static  WebDriver driver;
     private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
     private static final String IE_DRIVER_PROPERTY = "webdriver.ie.driver";
+    private static final String GECKO_DRIVER_PROPERTY = "webdriver.gecko.driver";
     private static final String chromeDriverPath = System.getProperty("user.dir")+"\\drivers\\ChromeDriver.exe";
     private static final String IEDriverPath = System.getProperty("user.dir")+"\\drivers\\IEDriverServer.exe";
     private static final String geckoDriverPath = System.getProperty("user.dir")+"\\drivers\\geckodriver.exe";
@@ -42,7 +43,7 @@ public class WebDriverManager {
     public static WebDriver createDriver(String driverType) throws Exception{
         switch (driverType.toUpperCase(Locale.ROOT)) {
             case "FIREFOX" :
-                System.setProperty("webdriver.gecko.driver",geckoDriverPath);
+                System.setProperty(GECKO_DRIVER_PROPERTY,geckoDriverPath);
                 driver = new FirefoxDriver();
                 break;
             case "CHROME" :
