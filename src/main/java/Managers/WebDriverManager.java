@@ -9,6 +9,7 @@ import org.openqa.selenium.ie.ElementScrollBehavior;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.Locale;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +21,7 @@ public class WebDriverManager {
     private static final String IE_DRIVER_PROPERTY = "webdriver.ie.driver";
     private static final String chromeDriverPath = System.getProperty("user.dir")+"\\drivers\\ChromeDriver.exe";
     private static final String IEDriverPath = System.getProperty("user.dir")+"\\drivers\\IEDriverServer.exe";
+    private static final String geckoDriverPath = System.getProperty("user.dir")+"\\drivers\\geckodriver.exe";
     public static Properties properties;
 
     public static WebDriverManager getInstance(){
@@ -38,8 +40,10 @@ public class WebDriverManager {
 
     @SuppressWarnings("deprecation")
     public static WebDriver createDriver(String driverType) throws Exception{
-        switch (driverType) {
-            case "FIREFOX" : driver = new FirefoxDriver();
+        switch (driverType.toUpperCase(Locale.ROOT)) {
+            case "FIREFOX" :
+                System.setProperty("webdriver.gecko.driver",geckoDriverPath);
+                driver = new FirefoxDriver();
                 break;
             case "CHROME" :
                 ChromeOptions option = new ChromeOptions();
@@ -68,6 +72,19 @@ public class WebDriverManager {
                 capabilities.setJavascriptEnabled(true);
                 System.setProperty(IE_DRIVER_PROPERTY, IEDriverPath);
                 driver = new InternetExplorerDriver(capabilities);
+                break;
+            default:
+                ChromeOptions chromeOption = new ChromeOptions();
+                chromeOption.addArguments("--disable-notifications");
+                chromeOption.addArguments("disable-infobars");
+                chromeOption.addArguments("start-maximized");
+                chromeOption.addArguments("--incognito");
+                chromeOption.addArguments("--test-type");
+                DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
+                chromeCapabilities.setJavascriptEnabled(true);
+                chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOption);
+                System.setProperty(CHROME_DRIVER_PROPERTY, chromeDriverPath);
+                driver = new ChromeDriver(chromeOption);
                 break;
         }
         properties = ConfigFileReader.readConfigFileContents();
