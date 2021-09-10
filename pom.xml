@@ -73,6 +73,13 @@
             <version>4.1.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.ibm.mq/com.ibm.mq.allclient -->
+        <dependency>
+            <groupId>com.ibm.mq</groupId>
+            <artifactId>com.ibm.mq.allclient</artifactId>
+            <version>9.2.1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
