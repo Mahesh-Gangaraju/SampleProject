@@ -7,7 +7,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class ProxyHandling {
+public class Proxy_Handling {
     //********Popup Handling Function*******//
     public void proxy_handling() throws Exception{
         Thread.sleep(2000);

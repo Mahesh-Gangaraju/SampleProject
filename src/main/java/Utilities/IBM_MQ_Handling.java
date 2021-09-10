@@ -11,7 +11,7 @@ import javax.jms.JMSException;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
-public class IBM_MQ_Messaging {
+public class IBM_MQ_Handling {
 
     //To Push Given Message Into Mentioned IBM MQ
     public Boolean pushMessageIntoIBMMQ(String QueueManager,String channelName,String Host, int Port, String Queue, String Message) throws Exception {

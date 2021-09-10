@@ -8,12 +8,12 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 
-public class FTP_Functions {
+public class FTP_Handling {
     // Creating FTP Client instance
     FTPClient ftp = null;
 
     // Constructor to connect to the FTP Server
-    public FTP_Functions(String host, int port, String username, String password) throws Exception{
+    public FTP_Handling(String host, int port, String username, String password) throws Exception{
         ftp = new FTPClient();
         ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
         int reply;

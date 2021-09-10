@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class FileHandling {
+public class File_Handling {
 
     //Used to Create a New File
     public static boolean createAFile(String filePath) {

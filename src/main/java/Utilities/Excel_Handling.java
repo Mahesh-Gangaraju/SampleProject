@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelOperations {
+public class Excel_Handling {
     public String path;
     public FileInputStream fis = null;
     public FileOutputStream fileOut = null;
