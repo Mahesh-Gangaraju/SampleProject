@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
         strict = true,
         monochrome = true,
         features = "src/test/java/features",
-        plugin = {"pretty" , "json:C:\\Mahesh Gangaraju\\Work\\AutomationResources\\Run_Results/cucumber.json"},
+        plugin = {"pretty" , "json:C:\\Mahesh Gangaraju\\Work\\AutomationResources\\Run_Results/cucumber.json","rerun:target/failed_scenarios.txt"},
         glue = {"StepDefinitions" , "BaseClass" },
-        tags = "@Dummy_1"
+        tags = "@Demo_Suite"
 )
 
 public class TestRunner {

@@ -3,26 +3,25 @@ package StepDefinitions;
 import BaseClass.BaseClass;
 import Managers.ConfigFileReader;
 import PageObjectModel.DemoApp_LoginPage;
-import Utilities.ExcelOperations;
-import Utilities.FileHandling;
-import Utilities.GenericFunctions;
+import Utilities.Excel_Handling;
+import Utilities.PDF_Handling;
 import Utilities.Screenshot;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-import java.io.File;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemoApplication {
     WebDriver driver;
     private DemoApp_LoginPage demoApp_LoginPage;
-    private ExcelOperations exlObj;
+    private Excel_Handling exlObj;
 
     @When("Dummy")
     public void dummy() throws Exception {
-
     }
 
     @Given("Demo Application is Launched")
